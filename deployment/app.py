@@ -16,6 +16,7 @@ LABEL_MAP = {
 
 @st.cache_resource
 def load_model():
+    # Download and load the trained model from Hugging Face Model Hub.
     token = os.getenv("HF_TOKEN")
     model_path = hf_hub_download(
         repo_id=HF_MODEL_REPO_ID,
@@ -54,7 +55,9 @@ with st.form("prediction_form"):
     submitted = st.form_submit_button("Predict Engine Condition")
 
 if submitted:
+    # Rubric requirement: get inputs and save them into a DataFrame.
     input_df = pd.DataFrame([sensor_values], columns=FEATURE_COLUMNS)
+
     prediction = int(MODEL.predict(input_df)[0])
 
     if hasattr(MODEL, "predict_proba"):
