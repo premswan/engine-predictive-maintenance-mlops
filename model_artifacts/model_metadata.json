@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-05-16T08:40:40.744719Z",
+  "created_at": "2026-05-16T09:32:30.200441Z",
   "best_model_name": "AdaBoost",
   "target_column": "Engine_Condition",
   "feature_columns": [
